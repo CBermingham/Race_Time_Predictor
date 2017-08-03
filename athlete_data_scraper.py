@@ -19,19 +19,20 @@ F = open('test_data.txt','w+')
 F.write(pretty_data.encode('utf-8'))
 F.close()
 
-#table = soup.table
-#print table.string
+# Identify the table of interest using the div and class
+div = soup.find("div",{"id":"cphBody_divBestPerformances"})
+table = div.find("table")
+th = table.find('tr', {"class":"bestperformancesheader"}).next_sibling
 
-#print soup.find_all('a')
+# Go through the rows and save the first and second entries in each into lists
+event = []
+time = []
+rows = table.find_all('tr')
+for i in rows:
+   	event.append(i.find('td').string.encode('utf-8'))
+   	time.append(i.find('td').next_sibling.string.encode('utf-8'))
 
-#table = soup.find_all("PB")
-#print table
 
-#table = soup.find('table', {'class': "athleteprofilesubheader"})
-#print table.string
 
-table = soup.find(lambda tag: tag.name=='td' and tag.has_attr('id') and tag['id']=="cphBody_divBestPerformances") 
 
-print table
-#rows = table.findAll(lambda tag: tag.name=='tr')
 
