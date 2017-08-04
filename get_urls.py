@@ -21,6 +21,3 @@ for i in rows[1:]:
 	if i.find('a') is not None:
 		links.append(i.find('a')['href'])
 
-for i in links:
-	print i
-
