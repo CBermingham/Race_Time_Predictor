@@ -1,1 +1,2 @@
-stuff
+Scrape times for races from runbritain and analyse the performance of the Reigel formula for predicting race times.
+Use machine learning to predict race times to try to find a better race time predictor.
